@@ -1,4 +1,4 @@
-<img src="https://s3.amazonaws.com/aurelius-assets/neo4j-gremlin.png" alt="Neo4j Gremlin Plugin" width="400" />
+<img src="https://s3.amazonaws.com/aurelius-assets/neo4j-gremlin.png" alt="Neo4jGremlinPlugin" width="400" />
 
 neo4j-gremlin-plugin
 ====================
@@ -110,7 +110,7 @@ $ curl -s -G --data-urlencode 'script=throw new Exception("something went wrong"
 
 ### Learning Gremlin
 
-For more information on Gremlin, please see the following project.
+For more information on Gremlin, please visit the following locations.
 * Gremlin Homepage [http://gremlin.tinkerpop.com](http://gremlin.tinkerpop.com)
 * GremlinDocs [http://gremlindocs.com](http://gremlindocs.com)
 * SQL2Gremlin [http://sql2gremlin.com](http://sql2gremlin.com)
