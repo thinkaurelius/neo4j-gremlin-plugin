@@ -114,3 +114,15 @@ For more information on Gremlin, please visit the following locations.
 * Gremlin Homepage [http://gremlin.tinkerpop.com](http://gremlin.tinkerpop.com)
 * GremlinDocs [http://gremlindocs.com](http://gremlindocs.com)
 * SQL2Gremlin [http://sql2gremlin.com](http://sql2gremlin.com)
+
+### Licenses
+
+* Neo4jGremlinPlugin - Apache2
+* TinkerPop2 - [BSD](https://github.com/tinkerpop/gremlin/blob/master/LICENSE.txt)
+* Neo4j - [Dual free software/commercial license](http://www.neo4j.org/learn/licensing)
+
+- - -
+
+Neo4jGremlinPlugin is created by [Aurelius](http://thinkaurelius.com).
+
+<a href="http://thinkaurelius.com"><img src="http://thinkaurelius.files.wordpress.com/2014/08/aurelius_logo.png" alt="Aurelius Logo" width="275" /></a>
