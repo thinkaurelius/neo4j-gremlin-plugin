@@ -1,5 +1,9 @@
+<img src="https://s3.amazonaws.com/aurelius-assets/neo4j-gremlin.png" alt="Neo4j Gremlin Plugin" width="400" />
+
 neo4j-gremlin-plugin
 ====================
+
+The Neo4jGremlinPlugin provides the ability to query/traverse a [Neo4j](http://neo4j.org =100x) graph using [Gremlin](http://gremlin.tinkerpop.com) via Neo4j Server 2.x. For Neo4j Server 1.x, please see the following project by Peter Neubauer: [neo4j-contrib/gremlin-plugin](https://github.com/neo4j-contrib/gremlin-plugin)
 
 ## Configure Neo4j Server
 
