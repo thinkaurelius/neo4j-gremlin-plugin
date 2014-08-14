@@ -1,9 +1,9 @@
-<img src="https://s3.amazonaws.com/aurelius-assets/neo4j-gremlin.png" alt="Neo4jGremlinPlugin" width="400" />
+<img src="https://s3.amazonaws.com/aurelius-assets/neo4j-gremlin.png" alt="Neo4j Gremlin Plugin" width="400" />
 
 neo4j-gremlin-plugin
 ====================
 
-The Neo4jGremlinPlugin provides the ability to query/traverse a [Neo4j](http://neo4j.org =100x) graph using [Gremlin](http://gremlin.tinkerpop.com) via Neo4j Server 2.x. For Neo4j Server 1.x, please see the following project by Peter Neubauer: [neo4j-contrib/gremlin-plugin](https://github.com/neo4j-contrib/gremlin-plugin)
+The Neo4j Gremlin Plugin provides the ability to query/traverse a [Neo4j](http://neo4j.org =100x) graph using [Gremlin](http://gremlin.tinkerpop.com) via Neo4j Server 2.x. For Neo4j Server 1.x, please see the following project by Peter Neubauer: [neo4j-contrib/gremlin-plugin](https://github.com/neo4j-contrib/gremlin-plugin)
 
 ## Configure Neo4j Server
 
@@ -17,7 +17,7 @@ org.neo4j.server.thirdparty_jaxrs_classes=com.thinkaurelius.neo4j.plugins=/tp
 
 ## Deploy into Neo4j Server
 
-To build and deploy Neo4jGremlinPlugin, please use the bash commands below. If you wish to use existing binaries, download from the [releases](https://github.com/thinkaurelius/neo4j-gremlin-plugin/releases) section of this repository.
+To build and deploy Neo4j Gremlin Plugin, please use the bash commands below. If you wish to use existing binaries, download from the [releases](https://github.com/thinkaurelius/neo4j-gremlin-plugin/releases) section of this repository.
 
 ```sh
 mvn clean package
@@ -117,12 +117,12 @@ For more information on Gremlin, please visit the following locations.
 
 ### Licenses
 
-* Neo4jGremlinPlugin - Apache2
+* Neo4j Gremlin Plugin - Apache2
 * TinkerPop2 - [BSD](https://github.com/tinkerpop/gremlin/blob/master/LICENSE.txt)
 * Neo4j - [Dual free software/commercial license](http://www.neo4j.org/learn/licensing)
 
 - - -
 
-Neo4jGremlinPlugin is created by [Aurelius](http://thinkaurelius.com).
+Neo4j Gremlin Plugin is created by [Aurelius](http://thinkaurelius.com).
 
 <a href="http://thinkaurelius.com"><img src="http://thinkaurelius.files.wordpress.com/2014/08/aurelius_logo.png" alt="Aurelius Logo" width="275" /></a>
