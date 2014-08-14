@@ -15,7 +15,9 @@ org.neo4j.server.thirdparty_jaxrs_classes=com.thinkaurelius.neo4j.plugins=/tp
 
 ...or, if you already registered another plugin, modify the setting accordingly.
 
-## Build and deploy into Neo4j Server
+## Deploy into Neo4j Server
+
+To build and deploy Neo4jGremlinPlugin, please use the bash commands below. If you wish to use existing binaries, download from the [releases](https://github.com/thinkaurelius/neo4j-gremlin-plugin/releases) section of this repository.
 
 ```sh
 mvn clean package
@@ -105,3 +107,10 @@ $ curl -s -G --data-urlencode 'script=throw new Exception("something went wrong"
     "success": false
 }
 ```
+
+### Learning Gremlin
+
+For more information on Gremlin, please see the following project.
+* Gremlin Homepage [http://gremlin.tinkerpop.com](http://gremlin.tinkerpop.com)
+* GremlinDocs [http://gremlindocs.com](http://gremlindocs.com)
+* SQL2Gremlin [http://sql2gremlin.com](http://sql2gremlin.com)
