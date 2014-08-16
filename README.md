@@ -21,6 +21,7 @@ To build and deploy Neo4j Gremlin Plugin, please use the bash commands below. If
 
 ```sh
 mvn clean package
+# for TP3 use: mvn clean package -Dtp.version=3
 unzip target/neo4j-gremlin-plugin-*-server-plugin.zip -d $NEO4J_HOME/plugins/gremlin-plugin
 $NEO4J_HOME/bin/neo4j restart
 ```
