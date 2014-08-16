@@ -5,7 +5,13 @@ notifications:
 jdk:
   - oraclejdk7
   - oraclejdk8
-
+env:
+ - MAVEN_OPTS='-Dtp.version=3'
+ - MAVEN_OPTS='-Dtp.version=2'
+matrix:
+  exclude:
+    - jdk: oraclejdk8
+      env: MAVEN_OPTS='-Dtp.version=2'
 branches:
   only:
     - master
