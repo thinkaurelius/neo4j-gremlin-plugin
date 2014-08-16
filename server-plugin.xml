@@ -15,14 +15,6 @@
             </excludes>
         </dependencySet>
     </dependencySets>
-<!--
-    <files>
-        <file>
-            <source>../README.md</source>
-            <outputDirectory>/</outputDirectory>
-        </file>
-    </files>
--->
     <fileSets>
         <fileSet>
             <directory>${project.basedir}/..</directory>
