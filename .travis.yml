@@ -1,0 +1,11 @@
+language: java
+notifications:
+  email:
+    - daniel@thinkaurelius.com
+jdk:
+  - oraclejdk7
+  - oraclejdk8
+
+branches:
+  only:
+    - master
