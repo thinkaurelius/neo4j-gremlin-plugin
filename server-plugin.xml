@@ -10,6 +10,26 @@
             <outputDirectory>/</outputDirectory>
             <useProjectArtifact>true</useProjectArtifact>
             <scope>runtime</scope>
+            <excludes>
+                <exclude>org.neo4j:*</exclude>
+            </excludes>
         </dependencySet>
     </dependencySets>
+<!--
+    <files>
+        <file>
+            <source>../README.md</source>
+            <outputDirectory>/</outputDirectory>
+        </file>
+    </files>
+-->
+    <fileSets>
+        <fileSet>
+            <directory>${project.basedir}/..</directory>
+            <outputDirectory>/</outputDirectory>
+            <includes>
+                <include>*LICENSE*</include>
+            </includes>
+        </fileSet>
+    </fileSets>
 </assembly>
