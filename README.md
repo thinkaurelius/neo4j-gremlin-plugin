@@ -124,6 +124,6 @@ For more information on Gremlin, please visit the following locations.
 
 - - -
 
-Neo4j Gremlin Plugin is created by [Aurelius](http://thinkaurelius.com).
+Neo4j Gremlin Plugin is maintained by [Aurelius](http://thinkaurelius.com).
 
 <a href="http://thinkaurelius.com"><img src="http://thinkaurelius.files.wordpress.com/2014/08/aurelius_logo.png" alt="Aurelius Logo" width="275" /></a>
