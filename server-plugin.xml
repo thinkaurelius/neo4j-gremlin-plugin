@@ -11,7 +11,20 @@
             <useProjectArtifact>true</useProjectArtifact>
             <scope>runtime</scope>
             <excludes>
+                <exclude>com.googlecode.concurrentlinkedhashmap:*</exclude>
+                <exclude>commons-beanutils:*</exclude>
+                <exclude>commons-collections:*</exclude>
+                <exclude>commons-configuration:*</exclude>
+                <exclude>commons-digester:*</exclude>
+                <exclude>commons-lang:*</exclude>
+                <exclude>commons-logging:*</exclude>
+                <exclude>net.sf.opencsv:*</exclude>
+                <exclude>org.apache.geronimo.specs:*</exclude>
+                <exclude>org.apache.lucene:*</exclude>
                 <exclude>org.neo4j:*</exclude>
+                <exclude>org.neo4j.3rdparty.javax.ws.rs:*</exclude>
+                <exclude>org.parboiled:*</exclude>
+                <exclude>org.scala-lang:*</exclude>
             </excludes>
         </dependencySet>
     </dependencySets>
