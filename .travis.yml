@@ -8,10 +8,6 @@ jdk:
 env:
  - MAVEN_OPTS='-Dtp.version=3'
  - MAVEN_OPTS='-Dtp.version=2'
-matrix:
-  exclude:
-    - jdk: oraclejdk7
-      env: MAVEN_OPTS='-Dtp.version=3'
 branches:
   only:
     - master
