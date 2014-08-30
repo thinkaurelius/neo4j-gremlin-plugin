@@ -109,6 +109,39 @@ $ curl -s -G --data-urlencode 'script=throw new Exception("something went wrong"
 }
 ```
 
+### Interacting with the graph
+
+The following requests will
+
+1. create an index for faster lookups
+2. load the [Grateful Dead graph](https://github.com/tinkerpop/gremlin/wiki/Defining-a-More-Complex-Property-Graph) into Neo4j
+3. find songs that are sung and written by Garcia
+
+
+```
+$ curl -s -G --data-urlencode 'script=g.createKeyIndex("name", Vertex.class)' \
+             http://localhost:7474/tp/gremlin/execute
+{
+    "success": true
+}
+$ curl -s -G --data-urlencode 'g.loadGraphML(url)' \
+             --data-urlencode 'params={"url":"https://raw.githubusercontent.com/tinkerpop/gremlin/2.5.0/data/graph-example-2.xml"}' \
+             http://localhost:7474/tp/gremlin/execute
+{
+    "success": true
+}
+$ curl -s -G --data-urlencode 'g.V().has("name", name).as("a").in("written_by").as("s").out("sung_by").retain("a").back("s").name' \
+             --data-urlencode 'params={"name":"Garcia"}' \
+             http://localhost:7474/tp/gremlin/execute
+{
+    "results": [
+        "CREAM PUFF WAR",
+        "CRYPTICAL ENVELOPMENT"
+    ],
+    "success": true
+}
+```
+
 ### Learning Gremlin
 
 For more information on Gremlin, please visit the following locations.
