@@ -124,13 +124,13 @@ $ curl -s -G --data-urlencode 'script=g.createKeyIndex("name", Vertex.class)' \
 {
     "success": true
 }
-$ curl -s -G --data-urlencode 'g.loadGraphML(url)' \
+$ curl -s -G --data-urlencode 'script=g.loadGraphML(url)' \
              --data-urlencode 'params={"url":"https://raw.githubusercontent.com/tinkerpop/gremlin/2.5.0/data/graph-example-2.xml"}' \
              http://localhost:7474/tp/gremlin/execute
 {
     "success": true
 }
-$ curl -s -G --data-urlencode 'g.V().has("name", name).as("a").in("written_by").as("s").out("sung_by").retain("a").back("s").name' \
+$ curl -s -G --data-urlencode 'script=g.V().has("name", name).as("a").in("written_by").as("s").out("sung_by").retain("a").back("s").name' \
              --data-urlencode 'params={"name":"Garcia"}' \
              http://localhost:7474/tp/gremlin/execute
 {
