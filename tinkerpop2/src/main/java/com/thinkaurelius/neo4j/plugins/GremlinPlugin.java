@@ -26,6 +26,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.net.URISyntaxException;
 import java.nio.charset.Charset;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -44,15 +45,23 @@ public class GremlinPlugin {
     private final static Object LOCK = new Object();
     private final static JSONResultConverter RESULT_CONVERTER = new JSONResultConverter(GraphSONMode.NORMAL, 0, Long.MAX_VALUE, null);
     private final static ConcurrentMap<String, String> CACHED_SCRIPTS = new ConcurrentHashMap<>();
-    private final static String SCRIPT_DIRECTORY = Paths.get(GremlinPlugin.class
-            .getProtectionDomain().getCodeSource().getLocation().toURI())
-            .getParent().getParent().getParent() + File.separator + "scripts";
+    private final static String SCRIPT_DIRECTORY = getScriptDirectory();
 
     private static volatile ScriptEngine engine;
     private static Neo4j2Graph neo4jGraph;
 
     private final GraphDatabaseService neo4j;
     private final Neo4j2Graph graph;
+
+    private static String getScriptDirectory() {
+        try {
+            return Paths.get(GremlinPlugin.class
+                    .getProtectionDomain().getCodeSource().getLocation().toURI())
+                    .getParent().getParent().getParent() + File.separator + "scripts";
+        } catch (URISyntaxException e) {
+            return "." + File.separator + "scripts";
+        }
+    }
 
     public GremlinPlugin(@Context GraphDatabaseService database) {
         this.graph = getOrCreateGraph(this.neo4j = database);

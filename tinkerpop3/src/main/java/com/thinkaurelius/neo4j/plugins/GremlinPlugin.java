@@ -24,6 +24,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.net.URISyntaxException;
 import java.nio.charset.Charset;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -41,15 +42,23 @@ public class GremlinPlugin {
 
     private final static Object LOCK = new Object();
     private final static ConcurrentMap<String, String> CACHED_SCRIPTS = new ConcurrentHashMap<>();
-    private final static String SCRIPT_DIRECTORY = Paths.get(GremlinPlugin.class
-            .getProtectionDomain().getCodeSource().getLocation().toURI())
-            .getParent().getParent().getParent() + File.separator + "scripts";
+    private final static String SCRIPT_DIRECTORY = getScriptDirectory();
 
     private static volatile ScriptEngine engine;
     private static Neo4jGraph neo4jGraph;
 
     private final GraphDatabaseService neo4j;
     private final Neo4jGraph graph;
+
+    private static String getScriptDirectory() {
+        try {
+            return Paths.get(GremlinPlugin.class
+                    .getProtectionDomain().getCodeSource().getLocation().toURI())
+                    .getParent().getParent().getParent() + File.separator + "scripts";
+        } catch (URISyntaxException e) {
+            return "." + File.separator + "scripts";
+        }
+    }
 
     public GremlinPlugin(@Context GraphDatabaseService database) {
         this.graph = getOrCreateGraph(this.neo4j = database);
@@ -93,7 +102,7 @@ public class GremlinPlugin {
 
             Object result = null;
 
-            final GraphSONObjectMapper mapper = GraphSONObjectMapper.build().embedTypes(false).build();
+            final GraphSONObjectMapper mapper = GraphSONObjectMapper.build().embedTypes(false).create();
 
             final String[] loadScripts = load != null && !load.isEmpty() ? load.split(",") : null;
             final JSONObject parameters = params != null ? new JSONObject(params) : null;
