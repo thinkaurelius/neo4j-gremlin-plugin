@@ -42,7 +42,7 @@ public class GremlinPlugin {
     private final static Object LOCK = new Object();
     private final static ConcurrentMap<String, String> CACHED_SCRIPTS = new ConcurrentHashMap<>();
     private final static String SCRIPT_DIRECTORY = Paths.get(GremlinPlugin.class
-            .getProtectionDomain().getCodeSource().getLocation().getPath())
+            .getProtectionDomain().getCodeSource().getLocation().toURI())
             .getParent().getParent().getParent() + File.separator + "scripts";
 
     private static volatile ScriptEngine engine;

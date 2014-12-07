@@ -45,7 +45,7 @@ public class GremlinPlugin {
     private final static JSONResultConverter RESULT_CONVERTER = new JSONResultConverter(GraphSONMode.NORMAL, 0, Long.MAX_VALUE, null);
     private final static ConcurrentMap<String, String> CACHED_SCRIPTS = new ConcurrentHashMap<>();
     private final static String SCRIPT_DIRECTORY = Paths.get(GremlinPlugin.class
-            .getProtectionDomain().getCodeSource().getLocation().getPath())
+            .getProtectionDomain().getCodeSource().getLocation().toURI())
             .getParent().getParent().getParent() + File.separator + "scripts";
 
     private static volatile ScriptEngine engine;
