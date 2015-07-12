@@ -1,9 +1,10 @@
 package com.thinkaurelius.neo4j.plugins;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tinkerpop.gremlin.groovy.jsr223.GremlinGroovyScriptEngine;
 import com.tinkerpop.gremlin.neo4j.structure.Neo4jGraph;
 import com.tinkerpop.gremlin.process.Traversal;
-import com.tinkerpop.gremlin.structure.io.graphson.GraphSONObjectMapper;
+import com.tinkerpop.gremlin.structure.io.graphson.GraphSONMapper;
 import org.apache.commons.io.IOUtils;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
@@ -102,7 +103,7 @@ public class GremlinPlugin {
 
             Object result = null;
 
-            final GraphSONObjectMapper mapper = GraphSONObjectMapper.build().embedTypes(false).create();
+            final ObjectMapper mapper = GraphSONMapper.build().embedTypes(false).create().createMapper();
 
             final String[] loadScripts = load != null && !load.isEmpty() ? load.split(",") : null;
             final JSONObject parameters = params != null ? new JSONObject(params) : null;

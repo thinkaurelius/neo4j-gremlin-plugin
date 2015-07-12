@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.thinkaurelius.neo4j</groupId>
     <artifactId>neo4j-gremlin-plugin</artifactId>
-    <version>2.1.6</version>
+    <version>2.2.3</version>
     <packaging>pom</packaging>
 
     <developers>
@@ -30,7 +30,7 @@
 
     <properties>
         <!-- Properties common to both TP2 and TP3 -->
-        <neo4j-version>2.1.6</neo4j-version>
+        <neo4j-version>2.2.3</neo4j-version>
         <apache-commons-version>2.4</apache-commons-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -52,6 +52,11 @@
             <groupId>org.neo4j</groupId>
             <artifactId>server-api</artifactId>
             <version>${neo4j-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.0</version>
         </dependency>
 
         <!-- Apache Commons -->
