@@ -13,7 +13,7 @@
     <artifactId>neo4j-gremlin-plugin-tp2</artifactId>
 
     <properties>
-        <tinkerpop-version>2.6.0</tinkerpop-version>
+        <tinkerpop-version>2.7.0-SNAPSHOT</tinkerpop-version>
     </properties>
 
     <dependencies>
