@@ -1,15 +1,18 @@
 package com.thinkaurelius.neo4j.plugins;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tinkerpop.gremlin.groovy.jsr223.GremlinGroovyScriptEngine;
-import com.tinkerpop.gremlin.neo4j.structure.Neo4jGraph;
-import com.tinkerpop.gremlin.process.Traversal;
-import com.tinkerpop.gremlin.structure.io.graphson.GraphSONMapper;
 import org.apache.commons.io.IOUtils;
+import org.apache.tinkerpop.gremlin.groovy.jsr223.GremlinGroovyScriptEngine;
+import org.apache.tinkerpop.gremlin.neo4j.structure.Neo4jGraph;
+import org.apache.tinkerpop.gremlin.process.traversal.Traversal;
+import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
+import org.apache.tinkerpop.gremlin.structure.io.graphson.GraphSONMapper;
+import org.apache.tinkerpop.shaded.jackson.databind.ObjectMapper;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Transaction;
+import org.neo4j.tinkerpop.api.Neo4jGraphAPI;
+import org.neo4j.tinkerpop.api.impl.Neo4jGraphAPIImpl;
 
 import javax.script.Bindings;
 import javax.script.ScriptEngine;
@@ -50,6 +53,7 @@ public class GremlinPlugin {
 
     private final GraphDatabaseService neo4j;
     private final Neo4jGraph graph;
+    private final GraphTraversalSource g;
 
     private static String getScriptDirectory() {
         try {
@@ -62,14 +66,15 @@ public class GremlinPlugin {
     }
 
     public GremlinPlugin(@Context GraphDatabaseService database) {
-        this.graph = getOrCreateGraph(this.neo4j = database);
+        this.g = (this.graph = getOrCreateGraph(this.neo4j = database)).traversal();
     }
 
     private static Neo4jGraph getOrCreateGraph(final GraphDatabaseService database) {
         if (neo4jGraph == null) {
             synchronized (LOCK) {
                 if (neo4jGraph == null) {
-                    neo4jGraph = Neo4jGraph.open(database);
+                    final Neo4jGraphAPI neo4jGraphAPI = new Neo4jGraphAPIImpl(database);
+                    neo4jGraph = Neo4jGraph.open(neo4jGraphAPI);
                 }
             }
         }
@@ -164,7 +169,8 @@ public class GremlinPlugin {
 
     private Bindings createBindings(final JSONObject params) throws JSONException {
         final Bindings bindings = new SimpleBindings() {{
-            put("g", graph);
+            put("graph", graph);
+            put("g", g);
         }};
         if (params != null) {
             final Iterator keys = params.keys();
