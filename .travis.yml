@@ -3,7 +3,6 @@ notifications:
   email:
     - daniel@thinkaurelius.com
 jdk:
-  - oraclejdk7
   - oraclejdk8
 env:
  - MAVEN_OPTS='-Dtp.version=3'
